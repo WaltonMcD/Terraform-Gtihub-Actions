@@ -31,10 +31,6 @@ resource "aws_instance" "app_server" {
               echo "Hello, World" > index.html
               nohup busybox httpd -f -p 8080 &
               EOF
- 
-  tags = {
-    Name = var.instance_name
-  }
 }
 
 resource "aws_security_group" "web-sg" {
