@@ -16,15 +16,15 @@ terraform {
 }
 
 provider "aws" {
-  region  = "us-east-1"
+  region = "us-east-1"
 }
 
 resource "random_pet" "sg" {}
 
 resource "aws_instance" "app_server" {
-  ami                         = "ami-05fa00d4c63e32376"
-  instance_type               = "t2.micro"
-  vpc_security_group_ids      = [aws_security_group.web-sg.id]
+  ami                    = "ami-05fa00d4c63e32376"
+  instance_type          = "t2.micro"
+  vpc_security_group_ids = [aws_security_group.web-sg.id]
 
   user_data = <<-EOF
               #!/bin/bash
